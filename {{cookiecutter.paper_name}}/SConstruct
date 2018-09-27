@@ -2,13 +2,13 @@ import os
 
 # name of files to compile
 paper = '{{cookiecutter.paper_name}}'
+pdfOpener = Builder(action = 'open -a {{cookiecutter.pdf_app}} $SOURCE', src_suffix = '.pdf')
 
 {% raw %}
 env =       Environment(ENV = os.environ)
 env['ENV']['TEXINPUTS'] = '.'  # colon separated list
 targets =   [os.path.splitext(f)[0] for f in os.listdir('.') if os.path.splitext(f)[1] == '.tex']
 
-pdfOpener = Builder(action = 'open -a /Applications/Skim.app/ $SOURCE', src_suffix = '.pdf')
 env.Append(BUILDERS = {'PDFOpen': pdfOpener})
 
 # Use synctex

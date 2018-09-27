@@ -4,6 +4,7 @@
   "author" : "Robin Scheibler",
   "affiliation" : "Tokyo Metropolitan University, Tokyo, Japan",
   "code_repo" : "https://github.com/fakufaku",
+  "pdf_app" : "/Applications/Skim.app/",
   "_copy_without_render": [
         "*.bst",
         "*.cls",
