@@ -9,3 +9,16 @@ To quickly get started on this new ICASSP paper, do the following
     
     # create the new paper draft
     cookiecutter https://github.com/fakufaku/cookiecutter-latex-ieeeconf
+
+## Compile the document
+
+The template uses [scons](https://scons.org/) to automate the latex compilation.
+
+    # if not done yet, install scons
+    pip install scons
+    
+    # compile document (i.e. make)
+    scons
+    
+    # clean up and delete all files (i.e. make clean)
+    scons -c
