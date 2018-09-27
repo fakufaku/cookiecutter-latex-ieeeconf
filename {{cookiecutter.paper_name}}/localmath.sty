@@ -1,0 +1,227 @@
+% Completed by Robin Scheibler, mostly based on Paul Hurley's
+% a style file that includes the packages typically
+% needed, and consisting of new commands/environments
+% that are useful.
+% Thus, brings consistency over different papers
+% papers, and avoid having to add new commands all
+% the time
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{latexsym}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{mdframed}
+
+% custom symbols package
+\usepackage{matvecsymb}
+
+%-------------------------------------------------------------------------
+\definecolor{shade}{rgb}{1,1,1}
+%--------------------------------------------------------------------------
+
+% Arrays
+\renewcommand{\arraystretch}{1.3} % More space between rows of tables
+
+\newenvironment{densitemize}%    Densely printed itemized list,
+{\begin{list}               %    with flush left bullets.
+    {$\bullet$ \hfill}{
+        \setlength{\leftmargin}{\parindent}
+        \setlength{\parsep}{0.04\baselineskip}
+        \setlength{\itemsep}{0.5\parsep}
+        \setlength{\labelwidth}{\leftmargin}
+        \setlength{\labelsep}{0em}}
+    }
+{\end{list}}
+
+% types
+\newcommand{\vect}{\boldsymbol}
+\renewcommand{\vec}{\boldsymbol}
+\newcommand{\mat}{\boldsymbol}
+\newcommand{\est}{\widehat}
+\providecommand{\wh}[1]{\ensuremath{\widehat{#1}}}
+\providecommand{\wt}[1]{\ensuremath{\widetilde{#1}}}
+
+
+\newcommand{\given}{\,\vert\,}
+\newcommand{\goesto}{\rightarrow}
+\newcommand{\toinfty}[1]{\overset{#1\rightarrow\infty}{\longrightarrow}}
+
+% operators
+\providecommand{\bydef}{\overset{\text{def}}{=}}
+\newcommand{\flor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\xor}{\oplus}
+\newcommand{\ip}[2]{\left\langle #1\,,\,#2 \right\rangle} % inner product
+\newcommand{\innerprod}[2]{\ip{#1}{#2}} % for backward compatibility
+\newcommand{\dunion}{\dot{\cup}}
+\newcommand{\intersect}{\cap}
+\newcommand{\union}{\cup}
+\newcommand{\transpose}{\text{${}^{\text{T}}$}}
+\newcommand{\T}{T}
+\renewcommand{\H}{H}
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\bnorm}[1]{\bigl\Vert#1\bigr\Vert}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\indicator}[1]{\mathds{1}_{\left\{ #1 \right\}}} % indicator function
+\newcommand{\indic}[1]{\mathds{1}_{#1}} % indicator function
+\newcommand{\one}[1]{\mathds{1}} % indicator function
+\def\argmax{\operatornamewithlimits{arg\,max}}
+\def\argmin{\operatornamewithlimits{arg\,min}}
+\newcommand{\DFT}[3]{\operatorname{DFT}_{#1}^{#2}\left\{#3\right\}}
+\newcommand{\iDFT}[3]{\operatorname{iDFT}_{#1}^{#2}\left\{#3\right\}}
+\renewcommand\Re{\operatorname{\mathfrak{Re}}}
+\renewcommand\Im{\operatorname{\mathfrak{Im}}}
+\newcommand{\sinc}{\operatorname{sinc}}
+\newcommand{\defeq}{\stackrel{\textup{def}}{=}}
+\newcommand{\texteq}[1]{\stackrel{\textup{#1}}{=}}
+\def\minimize{\operatornamewithlimits{minimize}}
+\providecommand{\conv}{\ast}
+\providecommand{\circonv}[1]{\circledast_{#1}}
+\providecommand{\epi}[1]{\e^{\I{#1}}}
+\providecommand{\emi}[1]{\e^{-\I{#1}}}
+\providecommand{\parder}[2]{{\partial{#1} \over \partial{#2}}}
+\providecommand{\parderr}[2]{{\partial^2{#1} \over \partial{#2}^2}}
+\providecommand{\di}{\ensuremath{\text{d}}}
+\providecommand{\Rint}{\int_{\R}}
+
+% sets, symbols
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\fat}[1]{\mathbf{#1}} % to write fat math symbol
+\def\Int{\operatorname{Int}}
+\def\Span{\operatorname{span}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\less}{\setminus}
+\newcommand{\by}{\times}
+\newcommand{\cross}{\times}
+\newcommand{\isomorphic}{\cong}
+
+% Define Probability, Expectation, Variance, Covariance, Median, Mode
+\newcommand{\Expect}[1]{\mathbb{E}\left[ #1 \right]}
+\newcommand{\Var}[1]{\mathrm{Var}\left( #1 \right)}
+\newcommand{\prob}[1]{\mathbb{P}\left\{#1\right\}}
+\renewcommand{\Pr}{\mbox{$\mathsf P$}}
+\newcommand{\Cov}{\mbox{$\mathcal C$}}
+\def\median{\operatorname{median}}
+\def\mode{\operatorname{mode}}
+\def\diag{\operatorname{diag}}
+\def\supp{\operatorname{supp}}
+
+% linear algebra
+%\newcommand{\rank}{\mbox{rank\,\,}}
+\def\rank{\operatorname{rank}}
+\def\Ker{\operatorname{Ker}}
+\def\Null{\mathcal{N}}
+\def\Range{\mathcal{R}}
+\newcommand{\rk}[1]{\mbox{rank\,}(#1)}
+\newenvironment{smatrix}{\bigl(\begin{smallmatrix}}{\end{smallmatrix}\bigr)}
+\newenvironment{ssmatrix}{\left(\begin{smallmatrix}}{\end{smallmatrix}\right)}
+
+% Complexity Theory
+\providecommand{\bigO}{O}
+
+% misc
+\newcommand{\reply}[1]{\\ \noindent\textit{#1}\\}
+%\renewcommand{\qed}{\hfill{$\Box$}}
+\def\tick{\ensuremath{\surd}}   % A tick that can be used in any environnement
+\newcommand{\Pol}{\mathcal{P}}  % for a polygon for example
+
+% referencing
+\newcommand{\ffref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\ffrefs}[2]{Figures~\ref{fig:#1} and~\ref{fig:#2}}
+\newcommand{\sref}[1]{Section~\ref{sec:#1}}
+\newcommand{\aref}[1]{Appendix~\ref{sec:#1}}
+\newcommand{\eref}[1]{(\ref{eqn:#1})}
+\newcommand{\tref}[1]{Table~\ref{tab:#1}}
+\newcommand{\thmref}[1]{Theorem~\ref{thm:#1}}
+\newcommand{\dref}[1]{Definition~\ref{def:#1}}
+\newcommand{\algref}[1]{Algorithm~\ref{alg:#1}}
+\newcommand{\lemref}[1]{Lemma~\ref{lem:#1}}
+\newcommand{\pref}[1]{Proposition~\ref{pro:#1}}
+
+% labelling
+\newcommand{\elabel}[1]{\label{eqn:#1}}
+\newcommand{\seclabel}[1]{\label{sec:#1}}
+\newcommand{\thmlabel}[1]{\label{thm:#1}}
+\newcommand{\lemlabel}[1]{\label{lem:#1}}
+\newcommand{\dlabel}[1]{\label{def:#1}}
+\newcommand{\alabel}[1]{\label{alg:#1}}
+\newcommand{\flabel}[1]{\label{fig:#1}}
+\newcommand{\tlabel}[1]{\label{tab:#1}}
+\newcommand{\plabel}[1]{\label{pro:#1}}
+
+
+
+%\theoremstyle{definition}
+
+% environments
+%\@ifundefined{proof}{%
+%\newenvironment{proof}{\noindent\textbf{Proof:}}{\qed}}{} %\\\vspace{2mm}}}{}
+
+\@ifundefined{sketchproof}{%
+\newenvironment{sketchproof}{\noindent\textit{Sketch of proof:}}{\qed}}{} %\\\vspace{2mm}}}{}
+
+% \@ifundefined{proof}{%
+%   \newenvironment{proof}{\noindent\textbf{Proof:}}{\endproof}}{}
+
+\@ifundefined{theorem}{%\mid\parallel
+\newtheorem{theorem}{Theorem}}{}
+
+\@ifundefined{lemma}{%\mid\parallel
+\newtheorem{lemma}{Lemma}}{}
+%\newtheorem{lemma}{Lemma}[section]}{}
+
+\@ifundefined{corollary}{%\mid\parallel
+\newtheorem{corollary}{Corollary}}{}
+
+\@ifundefined{hypothesis}{%\mid\parallel
+\newtheorem{hypothesis}{Hypothesis}}{}
+
+\@ifundefined{proposition}{%\mid\parallel
+\newtheorem{proposition}{Proposition}}{}
+%\newtheorem{proposition}{Proposition}[section]}{}
+
+\@ifundefined{definition}{%
+\newtheorem{definition}{Definition}}{}
+
+%\@ifundefined{definition}{
+%\newenvironment{definition}[1][Definition]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}}
+
+\@ifundefined{property}{%
+\newtheorem{property}{Property}}{}
+
+\@ifundefined{claim}{%
+\newtheorem{claim}{Claim}}{}
+
+\@ifundefined{remark}{
+\newtheorem{remark}{Remark}}{}
+
+\@ifundefined{problem}{
+\newtheorem{problem}{Problem}}{}
+
+
+%% Define a new 'leo' style for the package that will use a smaller font for urls
+% \makeatletter
+% \def\url@leostyle{%
+%   \@ifundefined{selectfont}{\def\UrlFont{\sf}}{%
+%     \def\UrlFont{\small\ttfamily}}\Url@do
+% }
+% \makeatother
+% 
+% %% Now actually use the newly defined style.
+% \urlstyle{leo}
+
+% hiding
+\newcommand{\hide}[1]{}
+
+%% temporary notes
+%\newcommand{\todo}[1]{{\bf TODO:#1}}

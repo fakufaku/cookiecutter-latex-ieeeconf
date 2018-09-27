@@ -1,0 +1,15 @@
+{
+  "paper_name" : "my_new_paper",
+  "title" : "My New Paper",
+  "author" : "Robin Scheibler",
+  "affiliation" : "Tokyo Metropolitan University, Tokyo, Japan",
+  "code_repo" : "https://github.com/fakufaku",
+  "_copy_without_render": [
+        "*.bst",
+        "*.cls",
+        "*.pdf",
+        "*.sty",
+        "figures/*",
+        "rendered_dir/not_rendered_file.ini"
+    ]
+}

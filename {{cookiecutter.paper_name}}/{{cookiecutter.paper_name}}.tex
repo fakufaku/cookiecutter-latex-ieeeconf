@@ -1,0 +1,147 @@
+{% raw %}
+\documentclass{article}
+\usepackage{spconf}
+\usepackage{blindtext, graphicx}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{subfig}
+\usepackage[font=footnotesize]{caption}
+\usepackage{hyperref}
+
+
+\usepackage{localmath}
+
+\newcommand{\mnote}[1]{\marginpar{\tiny{#1}}}
+
+%%%%%%%%%%% DANGER %%%%%%%%%%%%%%%%%
+%\addtolength{\columnsep}{-0.1mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+% measure text and linewidth
+% \usepackage{layouts}
+
+\graphicspath{{figures/}}
+
+\begin{document}
+\ninept
+
+{% endraw %}
+
+\title{{ "{" }}{{cookiecutter.title}}{{ "}" }}
+
+% Single address.
+% ---------------
+\name{{"{"}}{{cookiecutter.author}}%
+\thanks{{"{"}}
+The research presented in this paper is reproducible. Code and data are available at \protect\url{http://github.com/{{cookiecutter.code_repo}}{{ "}" }}.%
+{{ "}}" }}
+\address{{"{"}}{{cookiecutter.affiliation}}{{"}"}}
+
+{% raw %}
+
+% For example:
+% ------------
+%\address{School\\
+%	Department\\
+%	Address}
+%
+% Two addresses (uncomment and modify for two-address case).
+% ----------------------------------------------------------
+% \twoauthors
+%  {A. Robin Scheibler, B. Author-two\sthanks{Thanks to XYZ agency for funding.}}
+% 	{School A-B\\
+% 	Department A-B\\
+% 	Address A-B}
+%  {C. Author-three, D. Author-four\sthanks{The fourth author performed the work
+% 	while at ...}}
+% 	{School C-D\\
+% 	Department C-D\\
+% 	Address C-D}
+
+
+\maketitle
+
+\begin{abstract}
+  Summarize the paper here.
+\end{abstract}
+\begin{keywords}%
+About, five, key, words, here.
+\end{keywords}
+
+% To display textwidth and linewidth, uncomment package layouts 
+% just above begin{document} and the two following lines
+% textwidth: \printinunitsof{in}\prntlen{\textwidth}
+% linewidth: \printinunitsof{in}\prntlen{\linewidth}
+
+\section{Introduction}
+
+Don't you forget to mention all these related works.
+Reference to test \ffref{test}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.7\linewidth]{test.pdf}
+    \caption{A test figure}
+    \label{fig:setup}
+    \vspace{-0mm}
+\end{figure}
+
+\section{Model}
+
+Describe the background, notation, and signal model here.
+
+\section{Algorithm}
+
+Now comes the part about the algorithms.
+
+\section{Experiments}
+
+Why not show the results in a table like \tref{gamma} ?
+It is likely that we use \texttt{pyroomacoustics} for something \cite{scheibler2017pyroomacoustics}.
+
+\begin{table}
+    \centering
+    \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccccccccc@{}}
+        \toprule
+         &       &          & \multicolumn{7}{c}{{\footnotesize Number of echoes $K$}} \\
+         \cmidrule{4-10}
+         & anechoic & learn & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+         \cmidrule{2-10}
+         $\gamma = $ & $10$ & $10^{-1}$ & $10$ & $10^{-3}$ & 0 & 0 & 0 & 0 & 0 \\
+         \bottomrule
+    \end{tabular*}
+    \caption{A great table}
+    \tlabel{gamma}
+    \vspace{-0mm}
+\end{table}
+
+
+\begin{figure*}
+    \centering
+    \subfloat[mu_univ][Test left]{\includegraphics[width=0.45\linewidth]{test.pdf}\label{fig:mu_univ}}
+    \hfill
+    \subfloat[mu_spkr][Test right]{\includegraphics{test.pdf}\label{fig:mu_spkr}}
+    \caption{A figure with two subfigures}
+    \flabel{results}
+    \vspace{-0mm}
+\end{figure*}
+
+
+% Uncomment the following to push the conclusion to the end of the page
+%\vfill
+
+\section{Conclusion}
+
+Conclude the paper here
+
+\clearpage
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}
+{% endraw %}
